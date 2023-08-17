@@ -1,0 +1,53 @@
+todo(title,description,due data,priority) {
+     title - description - due date - priority - status = 'incomplete'
+
+    set each
+    get each
+}
+
+notes(description) {
+    description
+
+    set
+    get
+}
+
+checklist(title) {
+    title - [list items ...]
+
+    setTitle
+    getTitle
+
+    getAllListItem()
+    addListItem()
+    deleteListItem()
+}
+
+listItem(description) {
+    description - status = 'unchecked'
+
+    set
+    get
+}
+
+project(title) {
+    title - [tasks...]
+
+    addTask()
+    deleteTask()
+
+    setTitle
+    getTitle
+
+    getAllTask()
+}
+
+@ create a default project onload
+
+app {
+    
+    addProject()
+    deleteProject()
+    getAllProject()
+
+}
