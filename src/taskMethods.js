@@ -40,3 +40,5 @@ const taskMethods = {
     }
 
 }
+
+export default taskMethods;

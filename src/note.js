@@ -5,3 +5,5 @@ const createNote = ({ description }) => {
 
     return note;
 }
+
+export default createNote;

@@ -9,3 +9,5 @@ const createTodo = ({ title, description, dueDate, priority, status = false}) =>
 
     return todo;
 }
+
+export default createTodo;

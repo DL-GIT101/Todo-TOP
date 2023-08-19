@@ -6,3 +6,5 @@ const createListItem = ({ description, status = false}) => {
 
     return listItem;
 }
+
+export default createListItem;
