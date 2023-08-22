@@ -23,6 +23,10 @@ const titleMethods = (state) => ({
     setComplete: (newComplete) => state.complete = newComplete
  })
 
+ const typeMethods = (state) => ({
+    getType: () => state.type
+ })
+
 const createTodo = (title, description, dueDate, priority) => {
     
     let complete = false;
@@ -37,7 +41,7 @@ const createTodo = (title, description, dueDate, priority) => {
         type
     }
 
-    return Object.assign({},titleMethods(state),descriptionMethods(state),dueDateMethods(state),priorityMethods(state),completeMethods(state))
+    return Object.assign({},titleMethods(state),descriptionMethods(state),dueDateMethods(state),priorityMethods(state),completeMethods(state),typeMethods(state))
 }
 
 const createNote = (description) => {
@@ -47,7 +51,7 @@ const createNote = (description) => {
         type
     }
 
-    return Object.assign({},descriptionMethods(state))
+    return Object.assign({},descriptionMethods(state),typeMethods(state))
 }
 
 const createListItem = (description) => {
@@ -61,7 +65,7 @@ const createListItem = (description) => {
         type
     }
 
-    return Object.assign({},descriptionMethods(state), completeMethods(state))
+    return Object.assign({},descriptionMethods(state), completeMethods(state),typeMethods(state))
 }
 
 export { createTodo,createNote, createListItem };
