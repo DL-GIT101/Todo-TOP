@@ -1,19 +1,54 @@
-const createCheckList = () => {
-    let listArray = [];
+const titleMethods = (state) => ({
+    getTitle: () => state.title,
+    setTitle:(newTitle) => state.title = newTitle
+ })
 
-    return {
-        addList: (list) => {
-            if(list.getType() === "list"){
-                listArray.push(list);
-            }            
-        },
-        removeList: (index) => {
-                listArray.splice(index,1);
-        },
-        getAllList: () => {
-            return listArray.map(list => list.getState());
-        }
+ const containerMethods = (array) => ({
+    addItem: (item) => {
+        array.push(item);
+    },
+    removeItem: (index) => {
+        if (index >= 0 && index < array.length) {
+            array.splice(index, 1);
+          }
+    },
+    getItem: (index) => {
+        if (index >= 0 && index < array.length) {
+            return array[index];
+          }
+          return null;
+    },
+    getAllItem: () => {
+        return array.map(item => item.getState());
     }
+ })
+
+const createCheckList = (title) => {
+    let state = {
+        title
+    }
+
+    let array = [];
+
+    const checklistMethods = (array) => ({
+        addItem: (item) => {
+            if(item.getType() === "list"){
+                array.push(item);
+            }
+        }
+    })
+
+   return Object.assign({},titleMethods(state),containerMethods(array),checklistMethods(array))
 }
 
-export default createCheckList;
+const createProject = (title) => {
+    let state = {
+        title
+    }
+
+    let array = [];
+
+   return Object.assign({},titleMethods(state),containerMethods(array))
+}
+
+export {createCheckList, createProject};
