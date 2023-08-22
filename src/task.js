@@ -1,73 +1,61 @@
-const taskMethods = {
-    getTitle() {
-        return this.title;
-    },
+const titleMethods = (state) => ({
+    getTitle: () => state.title,
+    setTitle:(newTitle) => state.title = newTitle
+ })
 
-    getDescription() {
-        return this.description;
-    },
+ const descriptionMethods = (state) => ({
+    getDescription: () => state.description,
+    setDescription: (newDescription) => state.description = newDescription
+ })
 
-    getDueDate()  {
-        return this.dueDate;
-    },
+ const dueDateMethods = (state) => ({
+    getDueDate: () => state.dueDate,
+    setDueDate: (newDueDate) => state.dueDate = newDueDate
+ })
 
-    getPriority() {
-        return this.priority;
-    },
+ const priorityMethods = (state) => ({
+    getPriority: () => state.priority,
+    setPriority: (newPriority) => state.priority = newPriority
+ })
+
+ const completeMethods = (state) => ({
+    getComplete: () => state.complete,
+    setComplete: (newComplete) => state.complete = newComplete
+ })
+
+const createTodo = (title, description, dueDate, priority) => {
     
-    getStatus() {
-        return this.status;
-    },
-
-    setTitle(newTitle) {
-        this.title = newTitle;
-    },
-
-    setDescription(newDescription) {
-        this.description = newDescription;
-    },
-
-    setDueDate(newDueDate) {
-        this.dueDate = newDueDate;
-    },
-
-    setPriority(newPriority) {
-        this.priority = newPriority;
-    },
-
-    setStatus(newStatus) {
-        this.status = newStatus;
+    let complete = false;
+    
+    let state = {
+        title, 
+        description, 
+        dueDate, 
+        priority,
+        complete
     }
 
+    return Object.assign({},titleMethods(state),descriptionMethods(state),dueDateMethods(state),priorityMethods(state),completeMethods(state))
 }
 
-const createTodo = ({ title, description, dueDate, priority, status = false}) => {
-    let todo = Object.create(taskMethods);
+const createNote = (description) => {
+    let state = {
+        description
+    }
 
-    todo.title = title;
-    todo.description = description;
-    todo.dueDate = dueDate;
-    todo.priority = priority;
-    todo.status = status;
-
-    return todo;
+    return Object.assign({},descriptionMethods(state))
 }
 
-const createNote = ({ description }) => {
-    let note = Object.create(taskMethods);
+const createListItem = (description) => {
+    
+    let complete = false;
+    
+    let state = {
+        description, 
+        complete
+    }
 
-    note.description = description;
-
-    return note;
+    return Object.assign({},descriptionMethods(state), completeMethods(state))
 }
 
-const createListItem = ({ description, status = false}) => {
-    let listItem = Object.create(taskMethods);
-
-    listItem.description = description;
-    listItem.status = status;
-
-    return listItem;
-}
-
-export { createTodo, createNote, createListItem};
+export { createTodo,createNote, createListItem };
