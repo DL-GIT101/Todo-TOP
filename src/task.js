@@ -26,21 +26,25 @@ const titleMethods = (state) => ({
 const createTodo = (title, description, dueDate, priority) => {
     
     let complete = false;
-    
+    let type = "todo";
+
     let state = {
         title, 
         description, 
         dueDate, 
         priority,
-        complete
+        complete,
+        type
     }
 
     return Object.assign({},titleMethods(state),descriptionMethods(state),dueDateMethods(state),priorityMethods(state),completeMethods(state))
 }
 
 const createNote = (description) => {
+    let type = "note";
     let state = {
-        description
+        description,
+        type
     }
 
     return Object.assign({},descriptionMethods(state))
@@ -49,10 +53,12 @@ const createNote = (description) => {
 const createListItem = (description) => {
     
     let complete = false;
+    let type = "list";
     
     let state = {
         description, 
-        complete
+        complete,
+        type
     }
 
     return Object.assign({},descriptionMethods(state), completeMethods(state))
