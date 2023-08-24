@@ -1,3 +1,4 @@
+import './style.css';
 import * as date from 'date-fns';
 import {createTodo,createNote,createListItem} from './task';
 import {createCheckList} from './container';

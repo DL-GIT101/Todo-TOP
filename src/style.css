@@ -1,0 +1,15 @@
+:root {
+    --color-primary: #435334;
+    --color-accent: #9EB384;
+    --color-lightAccent: #CEDEBD;
+    --color-bg: #FAF1E4;
+}
+
+body {
+    background-color: var(--color-bg);
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 20px;
+}
