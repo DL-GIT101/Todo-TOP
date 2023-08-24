@@ -35,6 +35,8 @@ nav {
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: var(--color-accent);
+    color: var(--color-bg);
 }
 
 #footer > .github {
@@ -43,5 +45,7 @@ nav {
 }
 
 #footer > .github > h5 {
+    margin: 0;
     margin-left: 10px;
+
 }
