@@ -3,7 +3,7 @@ const titleMethods = (state) => ({
     setTitle:(newTitle) => state.title = newTitle
  })
 
- const containerMethods = (array) => ({
+const containerMethods = (array) => ({
     addItem: (item) => {
         array.push(item);
     },
@@ -23,20 +23,20 @@ const titleMethods = (state) => ({
     }
  })
 
+const checklistMethods = (array) => ({
+    addItem: (item) => {
+        if(item.getType() === "list"){
+            array.push(item);
+        }
+    }
+})
+
 const createCheckList = (title) => {
     let state = {
         title
     }
 
     let array = [];
-
-    const checklistMethods = (array) => ({
-        addItem: (item) => {
-            if(item.getType() === "list"){
-                array.push(item);
-            }
-        }
-    })
 
    return Object.assign({},titleMethods(state),containerMethods(array),checklistMethods(array))
 }
