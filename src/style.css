@@ -22,11 +22,26 @@ nav {
     color: var(--color-lightAccent);
 }
 
-nav > div {
+#navbar > div {
     display: flex;
     align-items: center;
 }
 
-nav > div > .icon {
+#navbar > div > .icon {
+    margin-left: 10px;
+}
+
+#footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#footer > .github {
+    display: flex;
+    padding: 1rem;
+}
+
+#footer > .github > h5 {
     margin-left: 10px;
 }
