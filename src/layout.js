@@ -26,8 +26,6 @@ const createContent = () => {
     const content = document.createElement('div');
     content.id = "content";
 
-
-
     body.appendChild(content);
 }
 
