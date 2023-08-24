@@ -21,6 +21,16 @@ const createNavBar = (name, iconSrc) => {
 
 }
 
+const createContent = () => {
+
+    const content = document.createElement('div');
+    content.id = "content";
+
+
+
+    body.appendChild(content);
+}
+
 const createFooter = (ghLogo, githubName) => {
 
     const footer = document.createElement('nav');
@@ -42,4 +52,4 @@ const createFooter = (ghLogo, githubName) => {
    
 }
 
-export {createNavBar,createFooter};
+export {createNavBar,createFooter,createContent};
