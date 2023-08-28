@@ -47,5 +47,13 @@ nav {
 #footer > .github > h5 {
     margin: 0;
     margin-left: 10px;
+}
 
+#content {
+    display: grid;
+    grid-template-columns: auto 1fr;
+}
+
+#sidebar{
+    background-color: var(--color-lightAccent);
 }
