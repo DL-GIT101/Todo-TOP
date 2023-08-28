@@ -85,6 +85,10 @@ nav {
     text-align: start;
 }
 
+#sidebar > .group > button.active {
+    border-color: var(--color-primary);
+}
+
 #sidebar > .group > button:hover {
     border-color: var(--color-primary);
 }
