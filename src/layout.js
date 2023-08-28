@@ -21,11 +21,11 @@ const createNavBar = (name, iconSrc) => {
 
 }
 
-const createContent = () => {
+const createContent = (...elements) => {
 
     const content = document.createElement('div');
     content.id = "content";
-
+    content.append(...elements);
     body.appendChild(content);
 }
 
