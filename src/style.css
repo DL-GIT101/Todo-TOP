@@ -56,4 +56,29 @@ nav {
 
 #sidebar{
     background-color: var(--color-lightAccent);
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+}
+
+#sidebar > .group {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+}
+
+#sidebar > .group > button {
+    background-color: var(--color-lightAccent);
+    margin-top: 1rem;
+    color: var(--color-primary);
+    font-size: 1.5rem;
+    cursor: pointer;
+    border-style: hidden hidden solid hidden;
+    border-color: rgba(0, 0, 0, 0);
+    transition: border-color 300ms ease;
+    text-align: start;
+}
+
+#sidebar > .group > button:hover {
+    border-color: var(--color-primary);
 }
