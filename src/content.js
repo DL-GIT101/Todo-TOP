@@ -9,7 +9,15 @@ const createSidebar = () => {
 
     const dates = createBtnGroup(today,tommorrow,week);
 
-    sidebar.append(dates);
+    const title = document.createElement('h3');
+    title.innerHTML = "Project";
+    title.className = "title";
+
+    const other = createButton("others","project");
+
+    const project = createBtnGroup(title,other);
+
+    sidebar.append(dates,project);
 
     return sidebar;
 }
