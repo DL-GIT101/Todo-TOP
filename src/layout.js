@@ -78,15 +78,15 @@ const createSidebar = () => {
     const sidebar = document.createElement('div');
     sidebar.id ="sidebar";
 
-    body.appendChild(sidebar);
+    return sidebar;
 }
 
-const createObjContainer = () => {
+const createMainContainer = () => {
 
     const container = document.createElement('div');
     container.id = "container";
 
-    body.appendChild(container);
+    return container;
 }
 
-export {addToLayout,createNavbar,createMain,createFooter};
+export {addToLayout,createNavbar,createMain,createFooter,createSidebar,createMainContainer};
