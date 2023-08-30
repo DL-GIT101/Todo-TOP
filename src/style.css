@@ -32,7 +32,7 @@ body {
 }
 
 #navbar > .container > h1 {
-    margin-left: 10px;
+    margin: 10px;
 }
 
 #footer {
@@ -43,12 +43,12 @@ body {
     color: var(--color-bg);
 }
 
-#footer > .github {
+#footer > .container {
     display: flex;
-    padding: 1rem;
+    padding: 0.5rem;
 }
 
-#footer > .github > h5 {
+#footer > .container > h5 {
     margin: 0;
     margin-left: 10px;
 }

@@ -43,33 +43,34 @@ const createNavbar = (logoSrc, name, linkNames) => {
     return navbar;
 }
 
-const createContent = (...elements) => {
+const createMain = (...elements) => {
 
     const content = document.createElement('div');
-    content.id = "content";
+    content.id = "main";
     content.append(...elements);
-    body.appendChild(content);
+
+    return content;
 }
 
-const createFooter = (ghLogo, githubName) => {
+const createFooter = (logoSrc, username) => {
 
     const footer = document.createElement('nav');
     footer.id = "footer";
 
-    const github = document.createElement('div');
-    github.className ="github";
-    const githubLogo = document.createElement('object');
-    githubLogo.setAttribute("type", "image/svg+xml");
-    githubLogo.setAttribute("data", ghLogo);
-    githubLogo.id = "ghLogo";
+    const container = document.createElement('span');
+    container.className ="container";
 
-    const ghUser = document.createElement('h5');
-    ghUser.innerHTML = githubName;
+    const logo = document.createElement('object');
+    logo.setAttribute("type", "image/svg+xml");
+    logo.setAttribute("data", logoSrc);
+    logo.id = "logo";
 
-    github.append(githubLogo,ghUser);
-    footer.append(github);
-    body.appendChild(footer);
-   
+    const name = document.createElement('h5');
+    name.textContent = username;
+
+    container.append(logo,name);
+    footer.append(container);
+    return footer;
 }
 
 const createSidebar = () => {
@@ -88,4 +89,4 @@ const createObjContainer = () => {
     body.appendChild(container);
 }
 
-export {addToLayout,createNavbar};
+export {addToLayout,createNavbar,createMain,createFooter};
