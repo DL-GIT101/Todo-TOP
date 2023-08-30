@@ -1,10 +1,10 @@
 import './style.css';
-import { createNavBar,createFooter,createContent } from './htmldoms';
 import icon from './img/icon.svg';
-import githubLogo from './img/github.svg';
-import {createTodo,createNote,createListItem} from './task';
-import {createCheckList} from './container';
+import {addToLayout,createNavbar} from './layout';
 
-createNavBar("TODO", icon);
-createContent();
-createFooter(githubLogo, "DL-GIT101");
+
+addToLayout(
+    createNavbar(icon, 'todo', []),
+
+    );
+

@@ -1,24 +1,46 @@
-const body = document.querySelector("body");
+const addToLayout = (...contents) => {
+    const body = document.querySelector("body");
+    
+    body.append(...contents);
+}
 
-const createNavBar = (name, iconSrc) => {
+const createNavbar = (logoSrc, name, linkNames) => {
 
-    const nav = document.createElement('nav');
-    nav.id = "navbar";
-    const logoContainer = document.createElement('div');
+    const navbar = document.createElement('nav');
+    navbar.id = "navbar";
+
+    const logoContainer = document.createElement('span');
+    logoContainer.className = "container";
+
+    if(logoSrc){
+        const logo = document.createElement('object');
+        logo.setAttribute("type", "image/svg+xml");
+        logo.setAttribute("data", logoSrc);
+        logo.id = "logo";
+        logoContainer.appendChild(logo);
+    }
 
     const logoName = document.createElement('h1');
-    logoName.innerHTML = name;
+    logoName.textContent = name;
+    logoName.id = "name";
 
-    const logo = document.createElement('object');
-    logo.setAttribute("type", "image/svg+xml");
-    logo.setAttribute("data", iconSrc);
-    logo.id = "icon";
+    logoContainer.appendChild(logoName);
 
-    logoContainer.append(logoName,logo);
+    navbar.appendChild(logoContainer);
 
-    nav.append(logoContainer);
-    body.appendChild(nav);
+    const linkList = document.createElement('ul');
+    for (const linkName of linkNames) {
+        const linkItem = document.createElement('li');
+        const link = document.createElement('a');
+        link.textContent = linkName;
 
+        linkItem.appendChild(link);
+        linkList.appendChild(linkItem);
+    }
+
+    navbar.appendChild(linkList);
+
+    return navbar;
 }
 
 const createContent = (...elements) => {
@@ -50,4 +72,20 @@ const createFooter = (ghLogo, githubName) => {
    
 }
 
-export {createNavBar,createFooter,createContent};
+const createSidebar = () => {
+    
+    const sidebar = document.createElement('div');
+    sidebar.id ="sidebar";
+
+    body.appendChild(sidebar);
+}
+
+const createObjContainer = () => {
+
+    const container = document.createElement('div');
+    container.id = "container";
+
+    body.appendChild(container);
+}
+
+export {addToLayout,createNavbar};
