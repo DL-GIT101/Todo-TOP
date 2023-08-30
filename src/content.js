@@ -1,20 +1,27 @@
-const createButton = (string,className) => {
+const createButton = (projectName) => {
 
-    const button  = document.createElement('button');
-    button.innerHTML = string;
-    button.className = className;
+    const button = document.createElement('button');
+    button.textContent = projectName;
+    button.className = "project";
 
     return button;
 }
 
-const createBtnGroup = (...buttons) => {
-
+const createButtonList = (buttonArray) => {
     const container = document.createElement('div');
-    container.className = "group";
 
-    container.append(...buttons);
+    for (const name of buttonArray) {
+        const button = createButton(name);
+        container.appendChild(button);
+    }
 
     return container;
 }
 
-export {};
+const addToContainer = (containerId,...elements) => {
+    const container  = document.getElementById(containerId);
+
+    container.append(...elements);
+}
+
+export {createButtonList,addToContainer};
