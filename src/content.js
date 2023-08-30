@@ -9,6 +9,7 @@ const createButton = (projectName) => {
 
 const createButtonList = (buttonArray) => {
     const container = document.createElement('div');
+    container.className = "group";
 
     for (const name of buttonArray) {
         const button = createButton(name);
