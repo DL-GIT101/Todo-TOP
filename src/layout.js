@@ -4,6 +4,12 @@ const addToLayout = (...contents) => {
     body.append(...contents);
 }
 
+const addToSidebar = (...elements) => {
+    const container  = document.getElementById("sidebar");
+
+    container.append(...elements);
+}
+
 const createNavbar = (logoSrc, name, linkNames) => {
 
     const navbar = document.createElement('nav');
@@ -89,4 +95,4 @@ const createMainContainer = () => {
     return container;
 }
 
-export {addToLayout,createNavbar,createMain,createFooter,createSidebar,createMainContainer};
+export {addToLayout,createNavbar,createMain,createFooter,createSidebar,createMainContainer,addToSidebar};
