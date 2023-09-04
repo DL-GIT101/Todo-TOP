@@ -31,5 +31,18 @@ const displayProjectList = (allProject) => {
     addToSidebar(createAddProjectBtn("+new"));
 } 
 
+const displayProjectForm  = () => {
 
-export {displayProjectList};
+    const container = document.createElement('div');
+    const titleInput = document.createElement('input');
+    titleInput.type = 'text';
+    titleInput.name = titleInput.id = "title";
+    const addButton = document.createElement('button');
+    addButton.textContent = "add";
+    
+    container.append(titleInput,addButton);
+
+    return container;
+}
+
+export {displayProjectList,displayProjectForm};
