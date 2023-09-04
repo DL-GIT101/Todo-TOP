@@ -33,16 +33,25 @@ const displayProjectList = (allProject) => {
 
 const displayProjectForm  = () => {
 
-    const container = document.createElement('div');
+    const modal = document.createElement('div');
+    modal.className = "modal";
+    modal.id = "project-form";
+
+    const content = document.createElement('div');
+    content.className = "content";
+
+    const project = createH3("project");
+
     const titleInput = document.createElement('input');
     titleInput.type = 'text';
-    titleInput.name = titleInput.id = "title";
+    titleInput.name = titleInput.id = titleInput.placeholder = "title";
+
     const addButton = document.createElement('button');
     addButton.textContent = "add";
     
-    container.append(titleInput,addButton);
-
-    return container;
+    content.append(project,titleInput,addButton);
+    modal.appendChild(content);
+    return modal;
 }
 
 export {displayProjectList,displayProjectForm};
