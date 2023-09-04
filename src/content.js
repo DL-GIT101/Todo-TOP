@@ -15,10 +15,10 @@ const createAddProjectBtn = (text) => {
     return button;
 }
 
-const displayProject = (projectName) => {
+const displayProject = (project) => {
 
     const button = document.createElement('button');
-    button.textContent = projectName;
+    button.textContent = project.getTitle();
     button.className = "project";
 
     return button;
@@ -45,4 +45,4 @@ const createButtonList = (projectTitle, buttonArray) => {
 
 
 
-export {createAddProjectBtn,createH3};
+export {createAddProjectBtn,createH3,displayProject};

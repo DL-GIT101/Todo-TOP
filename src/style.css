@@ -72,15 +72,16 @@ body {
     color: var(--color-primary);
 }
 
-#sidebar > .add {
+#sidebar > button {
     background-color: var(--color-invicible);
     border: none;
     color: var(--color-primary);
     cursor: pointer;
     border-bottom: 2px solid var(--color-invicible);
     transition: border 500ms ease;
+    text-align: start;
 }
 
-#sidebar > .add:hover {
+#sidebar > button:hover {
     border-bottom: 2px solid var(--color-primary);
 }
