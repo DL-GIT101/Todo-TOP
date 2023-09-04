@@ -3,6 +3,14 @@ const titleMethods = (state) => ({
     setTitle:(newTitle) => state.title = newTitle
  })
 
+ const typeMethods = (state) => ({
+    getType: () => state.type
+ })
+
+ const stateMethods = (state) => ({
+    getState: () =>  ({...state})
+ })
+
 const containerMethods = (array) => ({
     addItem: (item) => {
         array.push(item);
@@ -31,24 +39,53 @@ const checklistMethods = (array) => ({
     }
 })
 
+const projectListMethods = (array) => ({
+    addItem: (item) => {
+        if(item.getType() === "project"){
+            array.push(item);
+        }
+    },
+    getArray: () => {
+        return array;
+    }
+})
+
 const createCheckList = (title) => {
+    let type = "checklist";
+
     let state = {
-        title
+        title,
+        type
     }
 
     let array = [];
 
-   return Object.assign({},titleMethods(state),containerMethods(array),checklistMethods(array))
+   return Object.assign({},titleMethods(state),typeMethods(state),stateMethods(state),containerMethods(array),checklistMethods(array))
 }
 
 const createProject = (title) => {
+    let type = "project";
+
     let state = {
-        title
+        title,
+        type
     }
 
     let array = [];
 
-   return Object.assign({},titleMethods(state),containerMethods(array))
+   return Object.assign({},titleMethods(state),typeMethods(state),stateMethods(state),containerMethods(array))
 }
 
-export {createCheckList, createProject};
+const createProjectList = (title) => {
+    let type = "projectList";
+    let state = {
+        title,
+        type
+    }
+
+    let array = [];
+
+   return Object.assign({},titleMethods(state),typeMethods(state),stateMethods(state),containerMethods(array),projectListMethods(array))
+}
+
+export {createCheckList, createProject, createProjectList};
