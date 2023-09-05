@@ -59,7 +59,7 @@ body {
     grid-template-columns: auto 1fr;
 }
 
-#sidebar{
+#sidebar {
     background-color: var(--color-lightAccent);
     display: flex;
     flex-direction: column;
@@ -67,12 +67,17 @@ body {
     padding: 1rem;
 }
 
-#sidebar > .group {
+#sidebar > #project-list {
+    display: flex;
+    flex-direction: column;
+}
+
+#sidebar > #project-list > .group {
     margin: 0.5rem 0;
     color: var(--color-primary);
 }
 
-#sidebar > button {
+#sidebar > #project-list > button {
     background-color: var(--color-invicible);
     border: none;
     color: var(--color-primary);
@@ -82,7 +87,7 @@ body {
     text-align: start;
 }
 
-#sidebar > button:hover {
+#sidebar > #project-list > button:hover {
     border-bottom: 2px solid var(--color-primary);
 }
 
