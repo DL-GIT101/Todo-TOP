@@ -87,7 +87,6 @@ body {
 }
 
 #project-form {
-  /*  display: none;  */
     position: fixed; 
     z-index: 1; 
     left: 0;
@@ -120,7 +119,11 @@ body {
    outline: 1px solid var(--color-primary);
 }
 
-#project-form > .content > button {
+#project-form > .content > .group > button {
+    margin-left: 5px;
+}
+
+#project-form > .content > .group  > button {
     background-color: var(--color-primary);
     border: none;
     color: var(--color-bg);
@@ -128,6 +131,10 @@ body {
     cursor: pointer;
 }
 
-#project-form > .content > button:hover {
+#project-form > .content > .group  > button.close {
+    background-color: var(--color-accent);
+}
+
+#project-form > .content >.group > button:hover {
     filter: brightness(0.8);
 }

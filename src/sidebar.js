@@ -1,4 +1,5 @@
-import { addToSidebar } from "./layout";
+import { add } from "date-fns";
+import { addToLayout, addToSidebar } from "./layout";
 
 const createH3 = (text) => {
     const name = document.createElement('h3');
@@ -8,10 +9,20 @@ const createH3 = (text) => {
     return name;
 }
 
+const createButton = (text,name) => {
+    const button = document.createElement('button');
+    button.textContent = text;
+    button.className = name;
+    return button;
+}
+
 const createAddProjectBtn = (text) => {
     const button = document.createElement('button');
     button.textContent = text;
     button.className = "add";
+    button.addEventListener('click',() => {
+        addToLayout(displayProjectForm());
+    })
     return button;
 }
 
@@ -46,10 +57,18 @@ const displayProjectForm  = () => {
     titleInput.type = 'text';
     titleInput.name = titleInput.id = titleInput.placeholder = "title";
 
-    const addButton = document.createElement('button');
-    addButton.textContent = "add";
-    
-    content.append(project,titleInput,addButton);
+    const buttonGroup = document.createElement('span');
+    buttonGroup.className = "group";
+
+    const addButton = createButton("add","add");
+
+    const closeButton = createButton("close","close");
+    closeButton.addEventListener('click', () => {
+        modal.remove();
+    })
+
+    buttonGroup.append(addButton,closeButton);
+    content.append(project,titleInput,buttonGroup);
     modal.appendChild(content);
     return modal;
 }
