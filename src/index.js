@@ -1,7 +1,7 @@
 import './style.css';
 import icon from './img/icon.svg';
 import githubLogo from './img/github.svg';
-import {addToLayout,createNavbar,createMain,createFooter, createSidebar, createMainContainer} from './layout';
+import {addToLayout,createNavbar,createMain,createFooter, createSidebar, createMainContainer, removeAllChild} from './layout';
 import { displayProjectForm, displayProjectList } from './sidebar';
 import { createProject, createProjectList } from './container';
 
@@ -21,4 +21,4 @@ window.objectStorage = {
 for (let index = 1; index <= 5; index++) {
    createProject(index);
 }
-displayProjectList(objectStorage);
+displayProjectList("projects",objectStorage);
