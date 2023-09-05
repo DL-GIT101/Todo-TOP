@@ -1,5 +1,7 @@
-import { addToLayout, addToSidebar } from "./layout";
+import { addToLayout, addToSidebar, removeAllChild } from "./layout";
 import { createProject } from "./container";
+
+const sidebar = document.getElementById("sidebar");
 
 const createH3 = (text) => {
     const name = document.createElement('h3');
@@ -35,10 +37,14 @@ const displayProject = (project) => {
     return button;
 }
 
-const displayProjectList = (objectStorage) => {
-    addToSidebar(createH3("projects"));
-    const projectButtons = objectStorage.projects.map(project => addToSidebar(displayProject(project)));
-    addToSidebar(createAddProjectBtn("+new"));
+const displayProjectList = (title,objectStorage) => {
+    removeAllChild("sidebar");
+    const container = document.createElement('div');
+    container.id = "project-list";
+    container.append(createH3(title));
+    const projectButtons = objectStorage.projects.map(project => container.appendChild(displayProject(project)));
+    container.appendChild(createAddProjectBtn("+new"));
+    addToSidebar(container);
 } 
 
 const displayProjectForm  = () => {
@@ -63,6 +69,8 @@ const displayProjectForm  = () => {
     addButton.addEventListener('click', () => {
         let title = document.getElementById("title").value;
         createProject(title);
+        modal.remove();
+        displayProjectList("projects",window.objectStorage);
     })
 
     const closeButton = createButton("close","close");
