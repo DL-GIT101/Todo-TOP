@@ -12,12 +12,13 @@ addToLayout(
         createMainContainer(),
         ),
     createFooter(githubLogo,"DL-GIT101"),
-    displayProjectForm()
     );
 
-const allProjects = createProjectList("ALL");
+window.objectStorage = {
+    projects: [],
+};
+
 for (let index = 1; index <= 5; index++) {
-   let sample = createProject(index);
-    allProjects.addItem(sample);
+   createProject(index);
 }
-displayProjectList(allProjects);
+displayProjectList(objectStorage);
