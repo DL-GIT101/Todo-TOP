@@ -1,5 +1,5 @@
-import { add } from "date-fns";
 import { addToLayout, addToSidebar } from "./layout";
+import { createProject } from "./container";
 
 const createH3 = (text) => {
     const name = document.createElement('h3');
@@ -35,10 +35,9 @@ const displayProject = (project) => {
     return button;
 }
 
-const displayProjectList = (allProject) => {
+const displayProjectList = (objectStorage) => {
     addToSidebar(createH3("projects"));
-    const projectlist = allProject.getArray();
-    const projectButtons = projectlist.map(project => addToSidebar(displayProject(project)));
+    const projectButtons = objectStorage.projects.map(project => addToSidebar(displayProject(project)));
     addToSidebar(createAddProjectBtn("+new"));
 } 
 
@@ -61,6 +60,10 @@ const displayProjectForm  = () => {
     buttonGroup.className = "group";
 
     const addButton = createButton("add","add");
+    addButton.addEventListener('click', () => {
+        let title = document.getElementById("title").value;
+        createProject(title);
+    })
 
     const closeButton = createButton("close","close");
     closeButton.addEventListener('click', () => {
