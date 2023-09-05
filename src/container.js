@@ -39,17 +39,6 @@ const checklistMethods = (array) => ({
     }
 })
 
-const projectListMethods = (array) => ({
-    addItem: (item) => {
-        if(item.getType() === "project"){
-            array.push(item);
-        }
-    },
-    getArray: () => {
-        return array;
-    }
-})
-
 const createCheckList = (title) => {
     let type = "checklist";
 
@@ -73,19 +62,9 @@ const createProject = (title) => {
 
     let array = [];
 
-   return Object.assign({},titleMethods(state),typeMethods(state),stateMethods(state),containerMethods(array))
+   const project = Object.assign({},titleMethods(state),typeMethods(state),stateMethods(state),containerMethods(array));
+   window.objectStorage.projects.push(project);
+   return project;
 }
 
-const createProjectList = (title) => {
-    let type = "projectList";
-    let state = {
-        title,
-        type
-    }
-
-    let array = [];
-
-   return Object.assign({},titleMethods(state),typeMethods(state),stateMethods(state),containerMethods(array),projectListMethods(array))
-}
-
-export {createCheckList, createProject, createProjectList};
+export {createCheckList, createProject,};
