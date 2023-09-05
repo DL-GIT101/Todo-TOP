@@ -95,4 +95,13 @@ const createMainContainer = () => {
     return container;
 }
 
-export {addToLayout,createNavbar,createMain,createFooter,createSidebar,createMainContainer,addToSidebar};
+const removeAllChild = (id) => {
+    const container = document.getElementById(id);
+    let lastChild  = container.lastElementChild;
+        while(lastChild) {
+            container.removeChild(lastChild);
+            lastChild = container.lastElementChild;
+        }
+}
+
+export {addToLayout,createNavbar,createMain,createFooter,createSidebar,createMainContainer,addToSidebar,removeAllChild};
