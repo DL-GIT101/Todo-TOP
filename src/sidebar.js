@@ -56,32 +56,48 @@ const displayProjectForm  = () => {
     const content = document.createElement('div');
     content.className = "content";
 
-    const project = createH3("project");
+    const form = document.createElement('form');
+    form.addEventListener('submit', (event) => {
+        event.preventDefault();
+        addProject();
+    })
+
+    const titleLabel = document.createElement('label');
+    titleLabel.textContent = "project title";
+    titleLabel.setAttribute("for","title");
 
     const titleInput = document.createElement('input');
     titleInput.type = 'text';
     titleInput.name = titleInput.id = titleInput.placeholder = "title";
+    titleInput.required = true;
+    titleInput.minLength = "2";
+    titleInput.maxLength = "10";
 
     const buttonGroup = document.createElement('span');
     buttonGroup.className = "group";
 
     const addButton = createButton("add","add");
-    addButton.addEventListener('click', () => {
-        let title = document.getElementById("title").value;
-        createProject(title);
-        modal.remove();
-        displayProjectList("projects",window.objectStorage);
-    })
+    addButton.type = "submit";
 
     const closeButton = createButton("close","close");
+    closeButton.type = "button";
     closeButton.addEventListener('click', () => {
         modal.remove();
     })
 
     buttonGroup.append(addButton,closeButton);
-    content.append(project,titleInput,buttonGroup);
+    form.append(titleLabel,titleInput,buttonGroup);
+    content.appendChild(form);
     modal.appendChild(content);
     return modal;
+}
+
+const addProject = () => {
+    let title = document.getElementById("title").value;
+    createProject(title);
+    displayProjectList("projects",window.objectStorage);
+    let modal = document.getElementById("project-form");
+    modal.remove();
 }
 
 export {displayProjectList,displayProjectForm};
