@@ -1,5 +1,6 @@
 import { addToLayout, addToSidebar, removeAllChild } from "./layout";
 import { createProject } from "./container";
+import { displayTodoList } from "./content";
 
 const sidebar = document.getElementById("sidebar");
 
@@ -33,7 +34,9 @@ const displayProject = (project) => {
     const button = document.createElement('button');
     button.textContent = project.getTitle();
     button.className = "project";
-
+    button.addEventListener('click', () => {
+        displayTodoList(project);
+    })
     return button;
 }
 
