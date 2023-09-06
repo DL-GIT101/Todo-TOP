@@ -10,6 +10,11 @@ const addToSidebar = (...elements) => {
     container.append(...elements);
 }
 
+const addToContent = (...elements) => {
+    const container = document.getElementById("container");
+    container.append(...elements);
+}
+
 const createNavbar = (logoSrc, name, linkNames) => {
 
     const navbar = document.createElement('nav');
@@ -104,4 +109,4 @@ const removeAllChild = (id) => {
         }
 }
 
-export {addToLayout,createNavbar,createMain,createFooter,createSidebar,createMainContainer,addToSidebar,removeAllChild};
+export {addToLayout,addToContent,createNavbar,createMain,createFooter,createSidebar,createMainContainer,addToSidebar,removeAllChild};
