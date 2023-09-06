@@ -63,7 +63,7 @@ const createProject = (title) => {
     let array = [];
 
    const project = Object.assign({},titleMethods(state),typeMethods(state),stateMethods(state),containerMethods(array));
-   window.objectStorage.projects.push(project);
+   objectStorage.projects.push(project);
    return project;
 }
 
