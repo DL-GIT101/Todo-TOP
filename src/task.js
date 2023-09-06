@@ -35,13 +35,12 @@ const titleMethods = (state) => ({
     getProject: () => state.project
  })
 
-const createTodo = (title, description, dueDate, priority,project) => {
+const createTodo = (description, dueDate, priority,project) => {
     
     let complete = false;
     let type = "todo";
 
-    let state = {
-        title, 
+    let state = { 
         description, 
         dueDate, 
         priority,
@@ -50,7 +49,7 @@ const createTodo = (title, description, dueDate, priority,project) => {
         project
     }
 
-    return Object.assign({},titleMethods(state),descriptionMethods(state),dueDateMethods(state),priorityMethods(state),completeMethods(state),typeMethods(state),stateMethods(state),projectMethods(state))
+    return Object.assign({},descriptionMethods(state),dueDateMethods(state),priorityMethods(state),completeMethods(state),typeMethods(state),stateMethods(state),projectMethods(state))
 }
 
 const createNote = (description) => {
