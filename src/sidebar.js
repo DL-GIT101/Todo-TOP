@@ -42,10 +42,10 @@ const displayProjectList = (title,objectStorage) => {
     const container = document.createElement('div');
     container.id = "project-list";
     container.append(createH3(title));
-    const projectButtons = objectStorage.projects.map(project => container.appendChild(displayProject(project)));
+    objectStorage.projects.map(project => container.appendChild(displayProject(project)));
     container.appendChild(createAddProjectBtn("+new"));
     addToSidebar(container);
-} 
+}
 
 const displayProjectForm  = () => {
 
@@ -95,7 +95,7 @@ const displayProjectForm  = () => {
 const addProject = () => {
     let title = document.getElementById("title").value;
     createProject(title);
-    displayProjectList("projects",window.objectStorage);
+    displayProjectList("projects",objectStorage);
     let modal = document.getElementById("project-form");
     modal.remove();
 }
