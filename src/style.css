@@ -106,7 +106,6 @@ body {
     background-color: var(--color-bg);
     margin: 15% auto;
     padding: 20px;
-    border: 1px solid #888;
     width: 25%;
     display: flex;
     flex-direction: column;
@@ -115,20 +114,30 @@ body {
     border: 1px solid var(--color-primary);
 }
 
-#project-form > .content > #title{
-    margin-bottom: 1rem;
-    width: 50%;
+#project-form > .content > form{
+   display: flex;
+   flex-direction: column;
+   align-items: center;
 }
 
-#project-form > .content > #title:focus{
+#project-form > .content > form > label{
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+#project-form > .content > form > #title{
+    margin-bottom: 1rem;
+}
+
+#project-form > .content > form > #title:focus{
    outline: 1px solid var(--color-primary);
 }
 
-#project-form > .content > .group > button {
+#project-form > .content > form > .group > button {
     margin-left: 5px;
 }
 
-#project-form > .content > .group  > button {
+#project-form > .content > form > .group  > button {
     background-color: var(--color-primary);
     border: none;
     color: var(--color-bg);
@@ -136,10 +145,10 @@ body {
     cursor: pointer;
 }
 
-#project-form > .content > .group  > button.close {
+#project-form > .content > form > .group  > button.close {
     background-color: var(--color-accent);
 }
 
-#project-form > .content >.group > button:hover {
+#project-form > .content > form >.group > button:hover {
     filter: brightness(0.8);
 }
