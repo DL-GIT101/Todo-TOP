@@ -13,9 +13,7 @@ const createAddProjectBtn = (text) => {
 
 const displayProject = (project) => {
 
-    const button = document.createElement('button');
-    button.textContent = project.getTitle();
-    button.className = "project";
+    const button = createButton("project",project.getTitle());
     button.addEventListener('click', () => {
         displayTodoList(project);
         let active = document.querySelector(".active");
