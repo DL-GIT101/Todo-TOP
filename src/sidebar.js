@@ -84,8 +84,13 @@ const addProject = () => {
     let title = document.getElementById("title").value;
     createProject(title);
     displayProjectList("projects",objectStorage);
+
     let modal = document.getElementById("project-form");
     modal.remove();
+
+    let projectButtons = document.querySelectorAll("#project-list > button.project");
+    let lastProject = projectButtons[projectButtons.length -1];
+    lastProject.click();
 }
 
 export {displayProjectList,displayProjectForm};
