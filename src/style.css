@@ -91,6 +91,10 @@ body {
     border-bottom: 2px solid var(--color-primary);
 }
 
+#sidebar > #project-list > button.active {
+    font-weight: bold;
+}
+
 #project-form {
     position: fixed; 
     z-index: 1; 

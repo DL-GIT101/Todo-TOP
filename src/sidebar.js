@@ -18,6 +18,11 @@ const displayProject = (project) => {
     button.className = "project";
     button.addEventListener('click', () => {
         displayTodoList(project);
+        let active = document.querySelector(".active");
+        if(active){
+            active.classList.remove("active");
+        }
+        button.classList.add("active");
     })
     return button;
 }
