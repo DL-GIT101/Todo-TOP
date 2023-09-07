@@ -172,4 +172,18 @@ body {
     margin: 0 1rem;
     background-color: var(--color-accent);
     border-radius: 5px;
+    color: var(--color-primary);
+}
+
+#container > .add {
+    margin: 0 1rem;
+    background-color: var(--color-bg);
+    border: 2px solid var(--color-accent);
+    border-radius: 5px;
+    color: var(--color-accent);
+    cursor: pointer;
+}
+
+#container > .add:hover {
+    filter: brightness(0.8);
 }
