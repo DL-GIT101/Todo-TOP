@@ -26,8 +26,11 @@ for (let index = 0; index < 6; index++) {
 
 for (let i = 0; i < objectStorage.projects.length; i++) {
     for (let j = 0; j < 6; j++) {
-        objectStorage.projects[i].addItem(createTodo(`sample${i}`,"12-12-2023","low",i));
+        objectStorage.projects[i].addItem(createTodo(`${i}todo${j}`,"12-12-2023","low",i));
     }
 }
 
 displayProjectList("projects",objectStorage);
+let projectButtons = document.querySelectorAll("#project-list > button.project");
+    let lastProject = projectButtons[projectButtons.length -1];
+    lastProject.click();
