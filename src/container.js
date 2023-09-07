@@ -27,7 +27,7 @@ const containerMethods = (array) => ({
           return null;
     },
     getAllItem: () => {
-        return array.map(item => item.getState());
+        return array;
     }
  })
 
