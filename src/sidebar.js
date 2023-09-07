@@ -1,28 +1,10 @@
 import { addToLayout, addToSidebar, removeAllChild } from "./layout";
+import { createH3,createButton } from "./dom";
 import { createProject } from "./container";
 import { displayTodoList } from "./content";
 
-const sidebar = document.getElementById("sidebar");
-
-const createH3 = (text) => {
-    const name = document.createElement('h3');
-    name.className = "group";
-    name.textContent = text;
-
-    return name;
-}
-
-const createButton = (text,name) => {
-    const button = document.createElement('button');
-    button.textContent = text;
-    button.className = name;
-    return button;
-}
-
 const createAddProjectBtn = (text) => {
-    const button = document.createElement('button');
-    button.textContent = text;
-    button.className = "add";
+    const button = createButton("add",text);
     button.addEventListener('click',() => {
         addToLayout(displayProjectForm());
     })
@@ -44,7 +26,7 @@ const displayProjectList = (title,objectStorage) => {
     removeAllChild("sidebar");
     const container = document.createElement('div');
     container.id = "project-list";
-    container.append(createH3(title));
+    container.append(createH3("group",title));
     objectStorage.projects.map(project => container.appendChild(displayProject(project)));
     container.appendChild(createAddProjectBtn("+new"));
     addToSidebar(container);
