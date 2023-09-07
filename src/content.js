@@ -14,8 +14,6 @@ const displayTodoList = (project) => {
     let projectArray = project.getAllItem();
     projectArray.map(todo => addToContent(displayTodo(todo.description)));
     const end = document.createElement('div');
-    end.textContent ="end";
-    addToContent(end);
 }
 
 export {displayTodoList};
