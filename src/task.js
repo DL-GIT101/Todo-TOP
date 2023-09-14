@@ -35,7 +35,7 @@ const titleMethods = (state) => ({
     getProject: () => state.project
  })
 
-const createTodo = (description, dueDate, priority,project) => {
+const createTodo = (description, dueDate, priority, project) => {
     
     let complete = false;
     let type = "todo";
