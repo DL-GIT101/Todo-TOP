@@ -95,7 +95,7 @@ body {
     font-weight: bold;
 }
 
-#project-form {
+.modal {
     position: fixed; 
     z-index: 1; 
     left: 0;
@@ -106,7 +106,7 @@ body {
     background-color: rgba(0,0,0,0.4); 
 }
 
-#project-form > .content {
+.modal > .content {
     background-color: var(--color-bg);
     margin: 15% auto;
     padding: 20px;
@@ -118,30 +118,30 @@ body {
     border: 1px solid var(--color-primary);
 }
 
-#project-form > .content > form{
+.modal > .content > form{
    display: flex;
    flex-direction: column;
    align-items: center;
 }
 
-#project-form > .content > form > label{
+.modal > .content > form > label{
     font-weight: bold;
     margin-bottom: 0.5rem;
 }
 
-#project-form > .content > form > #title{
+.modal > .content > form > input{
     margin-bottom: 1rem;
 }
 
-#project-form > .content > form > #title:focus{
+.modal > .content > form > input:focus{
    outline: 1px solid var(--color-primary);
 }
 
-#project-form > .content > form > .group > button {
+.modal > .content > form > .group > button {
     margin-left: 5px;
 }
 
-#project-form > .content > form > .group  > button {
+.modal > .content > form > .group  > button {
     background-color: var(--color-primary);
     border: none;
     color: var(--color-bg);
@@ -149,11 +149,11 @@ body {
     cursor: pointer;
 }
 
-#project-form > .content > form > .group  > button.close {
+.modal > .content > form > .group  > button.close {
     background-color: var(--color-accent);
 }
 
-#project-form > .content > form >.group > button:hover {
+.modal > .content > form >.group > button:hover {
     filter: brightness(0.8);
 }
 
