@@ -32,5 +32,5 @@ for (let i = 0; i < objectStorage.projects.length; i++) {
 
 displayProjectList("projects",objectStorage);
 let projectButtons = document.querySelectorAll("#project-list > button.project");
-    let lastProject = projectButtons[projectButtons.length -1];
-    lastProject.click();
+let lastProject = projectButtons[projectButtons.length -1];
+lastProject.click();
